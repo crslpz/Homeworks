@@ -16,6 +16,11 @@ class Stack
 
     def peek
       # returns, but doesn't remove, the top element in the stack
-      @stack[0]
+      @stack.last
     end
+  end
+
+  class Queue
+
+
   end
