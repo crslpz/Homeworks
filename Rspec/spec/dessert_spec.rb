@@ -7,23 +7,39 @@ Instructions: implement all of the pending specs (the `it` statements without bl
 
 describe Dessert do
   let(:chef) { double("chef") }
-
+  let(:cupcake) {Dessert.new("cake",50, "chris")}
   describe "#initialize" do
-    it "sets a type"
+    it "sets a type" do
+      expect(cupcake.type).to eq("cake")
+    end
+    it "sets a quantity" do 
+      expect(cupcake.quantity).to eq(50)
+    end
 
-    it "sets a quantity"
-
-    it "starts ingredients as an empty array"
-
-    it "raises an argument error when given a non-integer quantity"
+    it "starts ingredients as an empty array" do 
+      expect(cupcake.ingredients).to eq([])
+    end
+    it "raises an argument error when given a non-integer quantity" do
+      expect{Dessert.new("cupcake","tons","chris")}.to raise_error(ArgumentError)
+    end
   end
 
   describe "#add_ingredient" do
-    it "adds an ingredient to the ingredients array"
+    it "adds an ingredient to the ingredients array" do
+      cupcake.add_ingredient("frosting")
+      expect(cupcakes.ingredients).to include("frosting")
+    end
   end
 
   describe "#mix!" do
-    it "shuffles the ingredient array"
+    it "shuffles the ingredient array" do
+      ingredients = ["flour","sugar", "frosting"]
+
+      ingredients.each do |ingredient|
+        cupcake.add_ingredient(ingredient)
+      end
+      expect(cupcake.ingredients).to eq(ingredients)
+      
   end
 
   describe "#eat" do
