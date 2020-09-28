@@ -1,12 +1,16 @@
 class LRUCache
-    def initialize
+    def initialize(size)
+        @size = size    
+        @cache = []
     end
 
     def count
-      # returns number of elements currently in cache
+        @size.length
+        # returns number of elements currently in cache
     end
 
     def add(el)
+        @cache
       # adds element to cache according to LRU principle
     end
 
@@ -15,6 +19,6 @@ class LRUCache
     end
 
     private
-    # helper methods go here!
+    attr_reader :cache    # helper methods go here!
 
   end
